@@ -77,4 +77,23 @@ window.addEventListener('DOMContentLoaded', function() {
 
     setClock ('timer', deadLine);
 
+
+    //Модальное окно
+    let more = document.querySelector('.more'),
+        overlay = document.querySelector('.overlay'),
+        close = document.querySelector('popup-close');
+
+        //открыть модальное окно по клику на кнопку
+        more.addEventListener('click', function() {
+            overlay.style.display = 'block';
+            this.classList.add('more-splash');
+            document.body.style.overflow = 'hidden'; //звпрет на пролистывание страницы, когда открыто модальное окно
+        });
+
+        //закрыть модальное окно по клику на крестик
+        close.addEventListener('click', function() {
+            overlay.style.display = 'none';
+            more.classList.remove('more-splash');
+            document.body.style.overflow = ''; //разрешение на пролистывание страницы, когда модальное окно закрывается
+        });
 });
